@@ -15,8 +15,14 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PySide2.QtGui import QGuiApplication
+from PySide2.QtWidgets import QApplication, QMainWindow
 from sys import argv
 
-app = QGuiApplication(argv)
+class MainWindow(QMainWindow):
+	def __init__(self, parent=None):
+		super().__init__(parent)
+
+app = QApplication(argv)
+win = MainWindow()
+win.show()
 app.exec_()
