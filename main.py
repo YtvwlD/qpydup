@@ -15,12 +15,17 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PySide2.QtWidgets import QApplication, QMainWindow
+from PySide2.QtWidgets import QApplication, QMainWindow, QListWidget, QHBoxLayout, QWidget
 from sys import argv
 
 class MainWindow(QMainWindow):
 	def __init__(self, parent=None):
 		super().__init__(parent)
+		self.centralWidget = QWidget(self)
+		self.layout = QHBoxLayout(self.centralWidget)
+
+		self.centralWidget.setLayout(self.layout)
+		self.setCentralWidget(self.centralWidget)
 
 app = QApplication(argv)
 win = MainWindow()
